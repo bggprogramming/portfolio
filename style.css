@@ -1,0 +1,286 @@
+:root {
+  --ink: #1a1a1a;
+  --line: #1a1a1a;
+  --paper: #fdfdfc;
+  --muted: #555;
+  --card-radius: 22px 18px 24px 16px / 16px 24px 18px 22px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Caveat", "Segoe Print", cursive;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+.skip:focus {
+  left: 16px; top: 16px;
+  background: #fff; padding: 8px 14px;
+  border: 2px solid var(--ink); z-index: 100;
+  font-family: system-ui, sans-serif;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 26px 48px 10px;
+  max-width: 1500px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.brand {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav {
+  display: flex;
+  gap: clamp(16px, 2.4vw, 40px);
+  align-items: center;
+}
+.nav a {
+  font-family: system-ui, "Helvetica Neue", Arial, sans-serif;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+  transition: border-color .15s ease, opacity .15s ease;
+}
+.nav a:hover { opacity: .6; }
+.nav a.active { border-bottom-color: var(--ink); }
+
+/* ---------- Layout ---------- */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(300px, 360px) minmax(360px, 1fr) minmax(340px, 420px);
+  gap: clamp(20px, 3vw, 48px);
+  align-items: start;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 10px 48px 60px;
+}
+
+.col { display: flex; flex-direction: column; gap: clamp(20px, 2.6vw, 36px); }
+.col-center { align-items: center; }
+
+/* ---------- Generic card ---------- */
+.card {
+  position: relative;
+  display: block;
+  background: #fff;
+  border: 2.5px solid var(--line);
+  border-radius: var(--card-radius);
+  color: var(--ink);
+  text-decoration: none;
+  overflow: hidden;
+  box-shadow: 2px 3px 0 rgba(0,0,0,.06);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.card:hover {
+  transform: translateY(-3px) rotate(-.3deg);
+  box-shadow: 4px 7px 0 rgba(0,0,0,.10);
+}
+
+.arrow {
+  position: absolute;
+  right: 18px;
+  bottom: 12px;
+  font-size: 26px;
+  line-height: 1;
+  font-family: "Caveat", cursive;
+}
+
+.eyebrow {
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+.eyebrow.underlined {
+  display: inline-block;
+  border-bottom: 1.5px solid var(--ink);
+  padding-bottom: 4px;
+  color: var(--ink);
+}
+
+/* ---------- Talk card ---------- */
+.card-talk { padding: 10px 10px 34px; }
+.card-talk img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+}
+
+/* ---------- News card ---------- */
+.card-news { padding: 20px 22px 40px; }
+.news-title {
+  font-size: clamp(26px, 2.4vw, 34px);
+  font-weight: 700;
+  line-height: 1.05;
+  margin: 0 0 16px;
+}
+.news-thumb {
+  width: 100%;
+  display: block;
+  border: 2px solid var(--line);
+  border-radius: 6px;
+}
+.scribble-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin-top: 18px;
+}
+.scribble-lines span {
+  height: 1.5px;
+  background: #cfcfcf;
+  border-radius: 2px;
+}
+.scribble-lines span:nth-child(1){ width: 100%; }
+.scribble-lines span:nth-child(2){ width: 100%; }
+.scribble-lines span:nth-child(3){ width: 92%; }
+.scribble-lines span:nth-child(4){ width: 70%; }
+
+/* ---------- Hero ---------- */
+.hero-img {
+  width: 100%;
+  max-width: 460px;
+  display: block;
+}
+.intro {
+  font-size: clamp(26px, 2.5vw, 36px);
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.25;
+  max-width: 440px;
+  margin: 6px auto 0;
+}
+
+/* ---------- Right top row ---------- */
+.right-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 1.6vw, 26px);
+}
+
+/* X card */
+.card-x {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 30px 14px;
+  aspect-ratio: 1 / 1;
+}
+.x-logo { width: 64px; height: 64px; fill: var(--ink); }
+.handle {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* TEDx Best of Humanity */
+.card-tedx2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 22px 22px 40px;
+  aspect-ratio: 1 / 1;
+}
+.tedx-logo {
+  font-family: system-ui, Arial, sans-serif;
+  font-weight: 800;
+  font-size: 40px;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+.tedx-logo sup { font-size: 20px; }
+.tedx-sub {
+  font-size: 27px;
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+/* Research card */
+.card-research {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+  gap: 10px;
+  padding: 22px 0 22px 24px;
+  min-height: 230px;
+}
+.research-text { display: flex; flex-direction: column; gap: 14px; }
+.research-title {
+  font-size: clamp(30px, 2.6vw, 40px);
+  font-weight: 700;
+  line-height: 1.05;
+  margin: 0;
+}
+.robot {
+  height: 100%;
+  width: auto;
+  max-height: 250px;
+  object-fit: contain;
+  align-self: end;
+  justify-self: end;
+}
+
+/* Cornell card */
+.card-cornell:hover {
+  transform: none;
+  box-shadow: 2px 3px 0 rgba(0,0,0,.06);
+  cursor: default;
+}
+.card-cornell {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 22px 26px;
+}
+.cornell-seal { width: 92px; height: auto; flex: none; }
+.cornell-text { display: flex; flex-direction: column; gap: 6px; }
+.cornell-name { font-size: 30px; font-weight: 600; }
+.cornell-major { font-size: 22px; color: var(--muted); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1080px) {
+  .layout {
+    grid-template-columns: 1fr 1fr;
+    padding: 10px 28px 50px;
+  }
+  .col-center { grid-column: 1 / -1; order: -1; }
+}
+
+@media (max-width: 680px) {
+  .site-header { padding: 20px 22px 8px; justify-content: center; text-align: center; }
+  .nav { flex-wrap: wrap; justify-content: center; }
+  .layout {
+    grid-template-columns: 1fr;
+    padding: 10px 20px 48px;
+  }
+  .col-center { order: -1; }
+}
