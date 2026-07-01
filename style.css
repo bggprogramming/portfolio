@@ -8,7 +8,10 @@
 
 * { box-sizing: border-box; }
 
+img { max-width: 100%; height: auto; }
+
 html { scroll-behavior: smooth; }
+body { overflow-x: hidden; }
 
 body {
   margin: 0;
@@ -81,8 +84,12 @@ body {
   padding: 10px 48px 60px;
 }
 
-.col { display: flex; flex-direction: column; gap: clamp(20px, 2.6vw, 36px); }
+.col { display: flex; flex-direction: column; gap: clamp(20px, 2.6vw, 36px); min-width: 0; }
 .col-center { align-items: center; }
+
+/* nudge the left column (talk + article) down so it sits below the header
+   with breathing room, matching the reference layout */
+.col-left { margin-top: 40px; }
 
 /* ---------- Generic card ---------- */
 .card {
@@ -96,6 +103,7 @@ body {
   overflow: hidden;
   box-shadow: 2px 3px 0 rgba(0,0,0,.06);
   transition: transform .18s ease, box-shadow .18s ease;
+  min-width: 0;
 }
 .card:hover {
   transform: translateY(-3px) rotate(-.3deg);
@@ -183,6 +191,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(16px, 1.6vw, 26px);
+  min-width: 0;
 }
 
 /* X card */
@@ -283,4 +292,10 @@ body {
     padding: 10px 20px 48px;
   }
   .col-center { order: -1; }
+  .col-left { margin-top: 0; }
+  .intro {
+    font-size: clamp(20px, 5.4vw, 28px);
+    max-width: 86vw;
+    overflow-wrap: break-word;
+  }
 }
