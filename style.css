@@ -300,6 +300,27 @@ body {
 .cornell-name { font-size: 30px; font-weight: 600; }
 .cornell-major { font-size: 22px; color: var(--muted); }
 
+/* ---------- Derivative card ---------- */
+.card-derivative {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 26px 40px;
+}
+.derivative-row {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.derivative-d {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 60px;
+  line-height: 1;
+}
+.derivative-text { display: flex; flex-direction: column; gap: 4px; }
+.derivative-name { font-size: 30px; font-weight: 600; }
+.derivative-sub { font-size: 21px; color: var(--muted); line-height: 1.15; }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1160px) {
   .layout {
