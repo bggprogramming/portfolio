@@ -20,6 +20,8 @@ body {
   font-family: "Caveat", "Segoe Print", cursive;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .skip {
@@ -80,7 +82,9 @@ body {
   gap: clamp(20px, 3vw, 48px);
   align-items: start;
   max-width: 1500px;
-  margin: 0 auto;
+  width: 100%;
+  /* margin auto (not "0 auto") + flex body = vertically centered on tall monitors */
+  margin: auto;
   padding: 10px 48px 60px;
 }
 
@@ -170,6 +174,27 @@ body {
 .scribble-lines span:nth-child(2){ width: 100%; }
 .scribble-lines span:nth-child(3){ width: 92%; }
 .scribble-lines span:nth-child(4){ width: 70%; }
+
+/* ---------- Monty card ---------- */
+.card-monty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 22px 42px;
+  text-align: center;
+}
+.monty-logo {
+  width: min(70%, 230px);
+  display: block;
+  filter: grayscale(1) contrast(1.05);
+  transition: filter .25s ease;
+}
+.card-monty:hover .monty-logo { filter: none; }
+.monty-name {
+  font-size: 28px;
+  font-weight: 600;
+}
 
 /* ---------- Hero ---------- */
 .hero-img {
@@ -276,7 +301,7 @@ body {
 .cornell-major { font-size: 22px; color: var(--muted); }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 1080px) {
+@media (max-width: 1160px) {
   .layout {
     grid-template-columns: 1fr 1fr;
     padding: 10px 28px 50px;
