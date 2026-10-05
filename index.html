@@ -97,6 +97,7 @@
         .then(function (d) {
           if (typeof d.value !== "number") return;
           try { localStorage.setItem("counted", "1"); } catch (e) {}
+          if (d.value <= 100) return; // stay hidden until it passes 100
           var el = document.getElementById("visits");
           el.textContent = d.value.toLocaleString() + " visitors";
           el.classList.add("shown");
