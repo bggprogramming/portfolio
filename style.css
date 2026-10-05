@@ -303,3 +303,14 @@ body {
     overflow-wrap: break-word;
   }
 }
+
+/* ---------- Visitor counter ---------- */
+.visits {
+  margin: 0 auto 18px;
+  font-size: 17px;
+  color: var(--muted);
+  opacity: 0;
+  transition: opacity .6s ease;
+  text-align: center;
+}
+.visits.shown { opacity: .55; }

@@ -82,5 +82,27 @@
     </section>
 
   </main>
+
+  <p class="visits" id="visits" aria-live="polite"></p>
+
+  <script>
+    // visitor counter: counts each browser once, returning visitors just read the total
+    (function () {
+      var base = "https://abacus.jasoncameron.dev/";
+      var key = "benjamingoodhart.com/visits";
+      var seen = false;
+      try { seen = localStorage.getItem("counted") === "1"; } catch (e) {}
+      fetch(base + (seen ? "get/" : "hit/") + key)
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (typeof d.value !== "number") return;
+          try { localStorage.setItem("counted", "1"); } catch (e) {}
+          var el = document.getElementById("visits");
+          el.textContent = d.value.toLocaleString() + " visitors";
+          el.classList.add("shown");
+        })
+        .catch(function () {});
+    })();
+  </script>
 </body>
 </html>
